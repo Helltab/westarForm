@@ -1,0 +1,338 @@
+/*westarForm, 此行必须位于第一行, 切不可删除*/
+body {
+  margin: 0;
+}
+.westar_edit,
+#westar_form_style .westar_form_wrap .westar_form_ceil[contenteditable],
+#westar_form_style .westar_field_hand_wrap div,
+#westar_form_style .westar_drag_search {
+  padding-left: 4px;
+  /*焦点时内容为空*/
+}
+.westar_edit:empty:before,
+#westar_form_style .westar_form_wrap .westar_form_ceil[contenteditable]:empty:before,
+#westar_form_style .westar_field_hand_wrap div:empty:before,
+#westar_form_style .westar_drag_search:empty:before {
+  content: attr(placeholder);
+  /* element attribute*/
+  color: grey;
+}
+.westar_edit:focus:before,
+#westar_form_style .westar_form_wrap .westar_form_ceil[contenteditable]:focus:before,
+#westar_form_style .westar_field_hand_wrap div:focus:before,
+#westar_form_style .westar_drag_search:focus:before {
+  content: none;
+}
+.westar_edit:focus,
+#westar_form_style .westar_form_wrap .westar_form_ceil[contenteditable]:focus,
+#westar_form_style .westar_field_hand_wrap div:focus,
+#westar_form_style .westar_drag_search:focus {
+  outline: none;
+}
+/*滚动条样式*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:vertical {
+  display: none;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track:vertical {
+  background-color: black;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:vertical {
+  margin-right: 10px;
+  background-color: #a6a6a6;
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: #aaa;
+}
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-corner:vertical {
+  background-color: #535353;
+}
+#westar_form_style {
+  background: #fff;
+}
+#westar_form_style #westarForm {
+  width: 30cm;
+  /* border: 2px solid cornflowerblue; */
+  margin: auto;
+  text-align: center;
+  padding: 0.2cm;
+  height: 100cm;
+  background: white;
+  overflow: auto;
+}
+#westar_form_style #westarForm input[type=radio] + label {
+  margin-right: 15px;
+}
+#westar_form_style #westarForm input[type=checkbox] + label {
+  margin-right: 15px;
+}
+#westar_form_style .westar_form_A4_H {
+  height: 21cm;
+  width: 29.7cm;
+  margin: auto;
+  /* zoom: 55%; */
+  /*border: 1px dashed green; */
+}
+#westar_form_style .westar_form_A4_V {
+  width: 21cm;
+  height: 29.7cm;
+  margin: auto;
+  /* zoom: 55%; */
+  /*border: 1px dashed green; */
+}
+#westar_form_style .westar_form_title_body {
+  height: 70px;
+}
+#westar_form_style .westar_form_A4_title {
+  color: black;
+  font-size: 29px;
+  text-align: center;
+  padding: 10px;
+}
+#westar_form_style .westar_form_title_hei {
+  font-family: "黑体";
+}
+#westar_form_style .westar_form_title_song {
+  font_family: "宋体";
+  font_weight: bold;
+}
+#westar_form_style .westar_form_body {
+  box-shadow: 5px 5px 20px grey;
+  margin: auto 5vh 5vh auto;
+}
+#westar_form_style .westar_form_body.westar_mode_drag {
+  margin-left: 30vw;
+  border: 1px solid darkgrey;
+}
+#westar_form_style .westar_form_body.westar_mode_read {
+  box-shadow: none;
+  margin: auto;
+}
+#westar_form_style .westar_form_wrap {
+  margin: auto;
+  display: grid;
+}
+#westar_form_style .westar_form_wrap .westar_form_ceil {
+  border: 1px solid grey;
+  text-align: left;
+  margin-top: -1px;
+  margin-left: -1px;
+  padding: 0 5px;
+  word-break: break-all;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  grid-gap: 10px;
+  /**
+      * div 模拟输入, 撑开 td, 自动换行
+      */
+}
+#westar_form_style .westar_form_wrap .westar_form_ceil[contenteditable] {
+  padding-top: 8px;
+  word-break: break-all;
+  word-wrap: break-word;
+  background: rgba(178, 254, 142, 0.1);
+  box-sizing: border-box;
+}
+#westar_form_style .westar_form_page {
+  text-align: center;
+  padding-right: 50vw;
+}
+#westar_form_style .westar_form_current {
+  border: 2px solid #6978fc !important;
+}
+#westar_form_style .westar_form_hide {
+  display: none !important;
+}
+#westar_form_style .westar_form_area {
+  background: rgba(71, 186, 218, 0.2);
+}
+#westar_form_style #westar_form_menu {
+  position: fixed;
+  z-index: 999;
+  display: none;
+  overflow: hidden;
+  height: 800px;
+}
+#westar_form_style .westar_form_menu_body {
+  width: 2000px;
+  padding: 4px;
+}
+#westar_form_style .westar_form_menu_body ul {
+  list-style: none;
+  width: 200px;
+  text-align: center;
+  padding: 0;
+  margin: 0px;
+  background: whitesmoke;
+  border: 1px solid green;
+  box-shadow: 0 1px 1px #888, 1px 0 1px #ccc;
+}
+#westar_form_style .westar_form_menu_body li {
+  margin: 0 auto;
+  width: auto;
+  padding: 5px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+#westar_form_style .westar_form_menu_body > ul > li:hover {
+  background: #0094FF;
+}
+#westar_form_style .westar_form_menu_child {
+  position: relative;
+  left: 190px;
+  top: -28px;
+  width: 150px !important;
+  display: none;
+}
+#westar_form_style .westar_form_menu_child li {
+  margin: 0 auto;
+  width: auto;
+  padding: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#westar_form_style .westar_form_menu_child li:hover {
+  background: #AFEEEE;
+}
+#westar_form_style .westar_form_menu_child li:hover ul {
+  display: block;
+}
+#westar_form_style .westar_form_on {
+  box-sizing: border-box;
+  border: 1px solid #005eff;
+}
+#westar_form_style .westar_form_text_left {
+  text-align: left !important;
+}
+#westar_form_style .westar_form_float_left {
+  float: left;
+}
+#westar_form_style .westar_form_text_center {
+  text-align: center !important;
+}
+#westar_form_style .westar_form_text_right {
+  text-align: right !important;
+}
+#westar_form_style #westar_form_mask {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+#westar_form_style #westar_form_modal {
+  display: block;
+  width: 40vw;
+  height: 60vh;
+  background: white;
+  border: 1px solid #808080;
+  border-radius: 10px;
+  position: fixed;
+  top: 10vh;
+  left: 30%;
+  text-align: center;
+}
+#westar_form_style #westar_form_modal > input {
+  margin-top: 50px;
+  width: 400px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid green;
+}
+#westar_form_style #westar_form_modal > div {
+  margin-top: 10px;
+}
+#westar_form_style #westar_form_modal > div > input {
+  width: 80px;
+  height: 32px;
+  border-radius: 4px;
+  background: none;
+  border: 1px solid #0094FF;
+}
+#westar_form_style .westar_drag_body {
+  height: 80vh;
+  width: 25vw;
+  border: 1px solid darkgrey;
+  position: fixed;
+  top: 8.4vh;
+  left: 2vw;
+  display: grid;
+  grid-template-rows: 10% 90%;
+}
+#westar_form_style .westar_drag_wrap {
+  display: grid;
+  grid-template-columns: 10% 30% 50%;
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
+#westar_form_style .westar_drag_wrap div {
+  border: 1px solid grey;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+}
+#westar_form_style .westar_drag_wrap i {
+  text-align: center;
+  font-size: 1.5vw;
+  display: grid;
+  align-items: center;
+}
+#westar_form_style .westar_form_field_wrap {
+  display: inline-block;
+  margin: 1px !important;
+  border: none !important;
+}
+#westar_form_style .westar_field_date_wrap {
+  border: none !important;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(6, 1fr);
+}
+#westar_form_style .westar_field_date_wrap div {
+  border: none !important;
+}
+#westar_form_style .westar_field_date_wrap div[contenteditable] {
+  background: rgba(178, 254, 142, 0.1);
+  border-bottom: 1px solid black !important;
+}
+#westar_form_style .westar_field_hand_wrap {
+  align-items: end !important;
+}
+#westar_form_style .westar_field_hand_wrap div {
+  height: 50px;
+}
+#westar_form_style .westar_form_none_back {
+  background: none !important;
+}
+#westar_form_style .westar_drag_search {
+  border: 1px solid lightskyblue;
+  line-height: 50px;
+  vertical-align: middle;
+  border-radius: 5px;
+  margin: 10px;
+  padding-left: 10px;
+}
+#westar_form_style .westar_drag_list {
+  height: 70vh;
+  overflow: auto;
+}

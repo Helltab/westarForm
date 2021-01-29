@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--    <script type="text/javascript" src="/static/plugins/Lodop/LodopFuncs.js"></script>-->
+    <style>
+        #westar_form_style {
+        }
+
+        div {
+            background: none;
+        }
+
+        html {
+            overflow: hidden !important;
+        }
+
+        div:before {
+            content: none !important;
+        }
+
+
+        /* 指正在点的链接*/
+        .westar_form_no_print {
+            position: fixed;
+            left: 100px;
+            top: 200px;
+        }
+
+        .print-btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            border: none;
+            background: linear-gradient(#55ffff, #ffaaff);
+            font-size: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+			color: #ffffff;
+			transition: all 0.2s linear;
+        }
+		.print-btn:hover {
+			transform: scale(1.2, 1.2);
+		}
+    </style>
+</head>
+<body>
+<div class="westar_form_no_print">
+    <div class="print-btn" href="#" onclick="printForm()"><i class="fa fa-print"></i></div>
+</div>
+<div id="westarForm">
+</div>
+<script src="./js/WestarForm.js"></script>
+<script>
+    var form = new WestarForm();
+    form.render({mode: 'read', loadLocal: true, ifPrint: true, ifVue: false});
+
+    function printForm() {
+        form.printForm()
+    }
+</script>
+</body>
+</html>

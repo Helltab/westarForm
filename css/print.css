@@ -1,0 +1,22 @@
+@media print {
+
+    .westar_form_no_print {
+        display: none;
+    }
+
+    .westar_form_paged_after {
+        page-break-after: always;
+    }
+
+    .westar_form_paged_before {
+        page-break-before: always;
+    }
+
+    div {
+        background: none;
+    }
+
+    div:before {
+        content: none !important;
+    }
+}

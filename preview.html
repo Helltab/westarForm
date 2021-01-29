@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--    <script type="text/javascript" src="/static/plugins/Lodop/LodopFuncs.js"></script>-->
+    <style>
+        #westar_form_style {
+        }
+
+        html {
+            overflow: hidden !important;
+        }
+    </style>
+</head>
+<body>
+<div class="westar_form_no_print">
+    <button onclick="printForm()">打印</button>
+</div>
+<div id="westarForm">
+</div>
+<script src="./js/WestarForm.js"></script>
+<script>
+    var form = new WestarForm();
+    form.render({mode: 'read', loadLocal: true});
+
+    function printForm() {
+        form.printForm()
+    }
+</script>
+</body>
+</html>

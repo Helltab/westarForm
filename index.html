@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<button onclick="saveForm()">保存</button>
+<button onclick="previewForm()">预览</button>
+<button onclick="checkField()">检查</button>
+<button onclick="fillField()">数据填充</button>
+<div id="westarForm">
+</div>
+<script src="./js/WestarForm.js"></script>
+<script>
+    var form = new WestarForm();
+    form.render({ceilNum: 12, mode: 'drag', fieldValueMap: {sex: '男'}});
+    var saveForm = form.saveForm;
+    var previewForm = form.previewForm;
+    var checkField = form.checkField;
+    var fillField = form.fillField;
+
+</script>
+</body>
+</html>
